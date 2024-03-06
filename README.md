@@ -58,29 +58,30 @@ For example:
 `docker build -t iombian-shutdown-service:latest .`
 
 After building the image, execute it with docker run.
+
 `docker run --name ${CONTAINER_NAME} --privileged --rm -d -v /run/systemd/system:/run/systemd/system -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket -v /bin/systemctl:/bin/systemctl -p 5558:5558 -e LOG_LEVEL=DEBUG`
 
-- --name is used to define the name of the created container.
+- **--name** is used to define the name of the created container.
 
-- -privileged is for granting privileges to the docker container.
+- **-privileged** is for granting privileges to the docker container.
 This is needed because the iombian-button-handler needs to create a thread to listen to the button events.
 
-- --rm can be used to delete the container when it stops.
+- **--rm** can be used to delete the container when it stops.
 This parameter is optional.
 
-- -d is used to run the container detached.
+- **-d** is used to run the container detached.
 This way the container will run in the background.
 This parameter is optional.
 
-- -v is used to pass a volume to the container.
+- **-v** is used to pass a volume to the container.
 In this case it's used to give the container access to some files.
 This volumes are necessary so the container can shut down the host machine.
 
-- -p is used to expose the internal 5558 port to the external 5558 port.
+- **-p** is used to expose the internal 5558 port to the external 5558 port.
 The 5558 port is where other services will need to connect to send the event messages.
 The port is exposed so the services from outside the containers network can access to this service.
 
-- -e can be used to define the environment variables:
+- **-e** can be used to define the environment variables:
     - SHUTDOWN_EVENTS_PORT: The port where the services need to connect to send the event messages.
     Default port is 5558.
     - LOG_LEVEL: define the log level for the python logger.
