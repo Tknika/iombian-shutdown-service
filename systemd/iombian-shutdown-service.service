@@ -1,0 +1,15 @@
+[Unit]
+Description=IoMBian Shutdown Service
+
+[Service]
+Type=simple
+User=iompi
+Restart=always
+RestartSec=5
+TimeoutStopSec=5
+
+WorkingDirectory=/opt/iombian-shutdown-service
+ExecStart=/opt/iombian-shutdown-service/venv/bin/python /opt/iombian-shutdown-service/main.py
+
+[Install]
+WantedBy=multi-user.target
