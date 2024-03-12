@@ -8,8 +8,9 @@ from communication_server import CommunicationServer
 from shutdown_commands import ShutdownCommands
 
 LOG_LEVEL = os.environ.get("LOG_LEVEL", logging.INFO)
-SHUTDOWN_EVENTS_HOST = "0.0.0.0"
-SHUTDOWN_EVENTS_PORT = int(os.environ.get("SHUTDOWN_EVENTS_PORT", 5558))
+SHUTDOWN_PORT = int(os.environ.get("SHUTDOWN_PORT", 5558))
+
+SHUTDOWN_HOST = "0.0.0.0"
 
 logging.basicConfig(format="%(asctime)s %(levelname)-8s - %(name)-16s - %(message)s", level=LOG_LEVEL)
 logger = logging.getLogger(__name__)
@@ -29,7 +30,7 @@ if __name__ == "__main__":
 
     shutdown_commands = ShutdownCommands()
 
-    server = CommunicationServer(shutdown_commands, host=SHUTDOWN_EVENTS_HOST, port=SHUTDOWN_EVENTS_PORT)
+    server = CommunicationServer(shutdown_commans, host=SHUTDOWN_HOST, port=SHUTDOWN_PORT)
     server.start()
 
     signal.signal(signal.SIGINT, signal_handler)
