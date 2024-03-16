@@ -12,5 +12,5 @@ class ShutdownCommands:
         os.system("systemctl poweroff")
 
     def reboot(self):
-        logging.debug("Rebboting the device.")
+        logging.debug("Rebooting the device.")
         os.system("systemctl reboot")
