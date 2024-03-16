@@ -59,7 +59,7 @@ For example:
 
 After building the image, execute it with docker run.
 
-`docker run --name ${CONTAINER_NAME} --privileged --rm -d -v /run/systemd/system:/run/systemd/system -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket -v /bin/systemctl:/bin/systemctl -p 5558:5558 -e LOG_LEVEL=DEBUG`
+`docker run --name ${CONTAINER_NAME} --privileged --rm -d -v /run/systemd/system:/run/systemd/system -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket -v /bin/systemctl:/bin/systemctl -p 5558:5558 -e LOG_LEVEL=DEBUG iombian-shutdown-service:latest`
 
 - **--name** is used to define the name of the created container.
 
