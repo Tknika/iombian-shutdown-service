@@ -8,9 +8,9 @@ class ShutdownCommands:
         pass
 
     def shutdown(self):
-        logging.debug("shutdown command recieved.")
+        logging.debug("Shutting down the device.")
         os.system("systemctl poweroff")
 
     def reboot(self):
-        logging.debug("reboot command recieved.")
+        logging.debug("Rebboting the device.")
         os.system("systemctl reboot")
