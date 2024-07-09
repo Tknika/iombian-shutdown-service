@@ -35,9 +35,9 @@ Any ZeroMQ client can connect to this port and send any event.
 
 `cd /opt/${PROJECT_NAME}`
 
-`python3 -m venv venv`
+`python3 -m venv .venv`
 
-`source venv/bin/activate`
+`source .venv/bin/activate`
 
 `pip install --upgrade pip`
 
